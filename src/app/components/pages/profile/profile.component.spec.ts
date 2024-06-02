@@ -11,7 +11,7 @@ describe('ProfileComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ProfileComponent, NavbarComponent]
+      declarations: [ProfileComponent, NavbarComponent],
     });
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;

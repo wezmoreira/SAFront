@@ -1,11 +1,17 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'show-card-modal',
   templateUrl: './show-card.modal.component.html',
-  styleUrls: ['./show-card.modal.component.css']
+  styleUrls: ['./show-card.modal.component.css'],
 })
-export class ShowCardModalComponent implements OnChanges{
+export class ShowCardModalComponent implements OnChanges {
   @Input()
   public comments: boolean = false;
 
@@ -22,10 +28,8 @@ export class ShowCardModalComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
     if ('comments' in changes) {
       this.comments = changes['comments'].currentValue;
     }
   }
-
 }

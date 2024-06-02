@@ -10,7 +10,7 @@ describe('AddCardModalComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, ReactiveFormsModule],
-      declarations: [AddCardModalComponent]
+      declarations: [AddCardModalComponent],
     });
     fixture = TestBed.createComponent(AddCardModalComponent);
     component = fixture.componentInstance;

@@ -4,17 +4,19 @@ import { LoginService } from '../signup/login.service';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SecurityUtilsService {
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+  ) {}
 
-  constructor(private loginService: LoginService, private router: Router) { }
-
-  grantedAuthorization(key: string){
-    localStorage.setItem('token', key)
+  grantedAuthorization(key: string) {
+    localStorage.setItem('token', key);
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
   }
 

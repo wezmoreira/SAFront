@@ -8,7 +8,7 @@ describe('ShowCardModalComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ShowCardModalComponent]
+      declarations: [ShowCardModalComponent],
     });
     fixture = TestBed.createComponent(ShowCardModalComponent);
     component = fixture.componentInstance;

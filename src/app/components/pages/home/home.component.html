@@ -14,7 +14,10 @@
         <ul class="uk-navbar-nav">
           <li class="uk-active">
             <a href="#modal-sections" uk-toggle>
-              <span class="uk-icon uk-margin-small-right" uk-icon="icon: plus"></span>
+              <span
+                class="uk-icon uk-margin-small-right"
+                uk-icon="icon: plus"
+              ></span>
               Adicionar
               <app-add-card-modal></app-add-card-modal>
             </a>
@@ -24,9 +27,7 @@
     </nav>
   </div>
 
-
   <div class="uk-container">
-    
     <div uk-grid>
       <div class="uk-width-2-4" *ngFor="let card of cardPrincipal">
         <!-- <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
@@ -60,16 +61,6 @@
           </div>         
         </div> -->
 
-
-
-
-
-
-
-
-
-
-
         <!-- <div class="uk-card uk-card-default uk-width-1-1@m" style="text-align: center;">
           <div class="uk-card-header">
               <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -85,36 +76,21 @@
               <a href="#" class="uk-button uk-button-text">Read more</a>
           </div>
         </div> -->
-        
-        <div class="uk-card uk-card-default uk-width-1-1@m" style="text-align: center;">
 
-
-        <div style="height: 500px;">
-          <div class="uk-card uk-card-hover uk-card-body">
+        <div
+          class="uk-card uk-card-default uk-width-1-1@m"
+          style="text-align: center"
+        >
+          <div style="height: 500px">
+            <div class="uk-card uk-card-hover uk-card-body">
               <h3 class="uk-card-title">{{ card.title }}</h3>
+            </div>
+            <div class="uk-card-body" style="margin-top: 50px">
+              <a href="#"><span class="button dimond">DIAMOND</span></a>
+              <p>{{ card.description }}</p>
+            </div>
           </div>
-          <div class="uk-card-body" style="margin-top: 50px;">
-            <a href="#"><span class="button dimond">DIAMOND</span></a>
-            <p>{{ card.description }}</p>
         </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </div>
   </div>

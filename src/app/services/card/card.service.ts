@@ -7,19 +7,18 @@ import { GenericResult } from 'src/app/models/generic-result.model';
 import { UserSignup } from 'src/app/models/user-signup/user-signup.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CardService {
+  private url: string = 'https://localhost:7080/api/';
 
-  private url: string = "https://localhost:7080/api/";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getCards() : Observable<GenericResult>{
+  getCards(): Observable<GenericResult> {
     return this.http.get<GenericResult>(`${this.url}v1/cards/principal`);
   }
 
-  addCard(body: NewCard) : Observable<NewCard>{
+  addCard(body: NewCard): Observable<NewCard> {
     return this.http.post<NewCard>(`${this.url}v1/cards/new-card`, body);
   }
 }

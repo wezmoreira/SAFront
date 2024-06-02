@@ -1,9 +1,3 @@
 export class PexelsRequest {
-
-    constructor(
-    ){
-
-    }
-  
+  constructor() {}
 }
-  

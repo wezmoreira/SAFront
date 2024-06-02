@@ -16,28 +16,21 @@
             "outputPath": "dist/solidariedade-anonima",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "optimization": { 
-                "scripts": true, 
-                "styles": { 
-                  "minify": true, 
-                  "inlineCritical": false 
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
                 }
-                },
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -54,13 +47,13 @@
             },
             "development": {
               "buildOptimizer": false,
-              "optimization": { 
-                "scripts": true, 
-                "styles": { 
-                  "minify": true, 
-                  "inlineCritical": false 
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
                 }
-                },
+              },
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
@@ -90,18 +83,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }

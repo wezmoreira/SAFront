@@ -4,87 +4,89 @@ import { Router } from '@angular/router';
 import { SignupDataService } from 'src/app/services/signup/signup-data.service';
 import UIkit from 'uikit';
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent{
-
+export class SignupComponent {
   public form: FormGroup;
 
   constructor(
     private service: SignupDataService,
     private fb: FormBuilder,
-    private router: Router)
-  {
+    private router: Router,
+  ) {
     this.form = this.fb.group({
       username: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(3),
           Validators.maxLength(20),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       password: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(50),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       email: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(150),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       city: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(2),
           Validators.maxLength(30),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       cep: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(20),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       address: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(150),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       number: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(15),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
-    })
+    });
   }
 
-  register(){
-    this.service.registerUser(this.form.value)
-    .subscribe( 
-      {
+  register() {
+    this.service.registerUser(this.form.value).subscribe({
       next: (data: any) => {
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.log(err)
-      }
+        console.log(err);
+      },
     });
 
-    UIkit.notification("…", {pos: 'top-right'})
-  
+    UIkit.notification('…', { pos: 'top-right' });
   }
 }

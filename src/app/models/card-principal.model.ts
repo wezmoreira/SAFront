@@ -1,27 +1,25 @@
-import { ICardPrincipal } from "../interfaces/card-principal.interface";
+import { ICardPrincipal } from '../interfaces/card-principal.interface';
 
 export class CardPrincipal implements ICardPrincipal {
-    public title : string;
-    public description : string;
-    public imageLarge : string;
-    public imageOriginal : string;
-    public imagePortrait : string;
-    public imageLandscape : string;
-    public imageTiny : string;
-    public userId: string;
-    public date: Date;
+  public title: string;
+  public description: string;
+  public imageLarge: string;
+  public imageOriginal: string;
+  public imagePortrait: string;
+  public imageLandscape: string;
+  public imageTiny: string;
+  public userId: string;
+  public date: Date;
 
-    constructor(
-    ){
-        this.title = "";
-        this.description = "";
-        this.imageLarge = "";
-        this.imageOriginal = "";
-        this.imagePortrait = "";
-        this.imageLandscape = "";
-        this.imageTiny = "";
-        this.userId = "";
-        this.date = new Date();
-    }
-  
+  constructor() {
+    this.title = '';
+    this.description = '';
+    this.imageLarge = '';
+    this.imageOriginal = '';
+    this.imagePortrait = '';
+    this.imageLandscape = '';
+    this.imageTiny = '';
+    this.userId = '';
+    this.date = new Date();
   }
+}

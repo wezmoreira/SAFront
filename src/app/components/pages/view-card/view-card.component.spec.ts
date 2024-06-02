@@ -11,7 +11,7 @@ describe('ViewCardComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ViewCardComponent, NavbarComponent]
+      declarations: [ViewCardComponent, NavbarComponent],
     });
     fixture = TestBed.createComponent(ViewCardComponent);
     component = fixture.componentInstance;

@@ -1,3 +1,1 @@
-export interface IPexelsRequest {
-    
-}
+export interface IPexelsRequest {}

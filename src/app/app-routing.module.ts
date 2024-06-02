@@ -12,16 +12,16 @@ import { AuthorizationGuard } from './_guard/authorization.guard';
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
   },
 
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'view-card',
-    component: ViewCardComponent
+    component: ViewCardComponent,
   },
   {
     path: 'user',
@@ -35,29 +35,29 @@ const routes: Routes = [
         path: 'cards',
         component: MyCardsComponent,
         // canActivate: [AuthorizationGuard]
-      }
-    ]
+      },
+    ],
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
   },
   {
     path: 'resetpassword',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
   },
   {
     path: '**',
-    redirectTo: 'home'
-  }
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

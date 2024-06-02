@@ -8,10 +8,9 @@ import UIkit from 'uikit';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit{
-  
+export class HomeComponent implements OnInit {
   public cardPrincipal: CardPrincipal[] = [];
   public showComments: boolean = false;
   public currentTitle: string = '';
@@ -22,9 +21,11 @@ export class HomeComponent implements OnInit{
   public address: string = '';
   public cep: string = '';
   public number: string = '';
-  
-  constructor(private cardService: CardService, private userService: UserService) {
-    }
+
+  constructor(
+    private cardService: CardService,
+    private userService: UserService,
+  ) {}
 
   ngOnInit() {
     this.loadCards();
@@ -35,41 +36,53 @@ export class HomeComponent implements OnInit{
   }
 
   loadCards() {
-    this.cardService.getCards()
-    .subscribe(
-      {
-        next: (response: GenericResult) => {
-          if (Array.isArray(response.data)) {
-            this.cardPrincipal = response.data;
-          } else {
-            this.cardPrincipal.push(response.data);
-          }
-        },
-        error: (err) => {
-          UIkit.notification("Erro ao carregar os cards!", {pos: 'bottom-right', status: 'danger', timeout: 5000, group: 'notification-group-1'})
+    this.cardService.getCards().subscribe({
+      next: (response: GenericResult) => {
+        if (Array.isArray(response.data)) {
+          this.cardPrincipal = response.data;
+        } else {
+          this.cardPrincipal.push(response.data);
         }
-      }
-    )
+      },
+      error: (err) => {
+        UIkit.notification('Erro ao carregar os cards!', {
+          pos: 'bottom-right',
+          status: 'danger',
+          timeout: 5000,
+          group: 'notification-group-1',
+        });
+      },
+    });
   }
 
-  showCardDetails(title: string, description: string, imagePortrait: string): void{
+  showCardDetails(
+    title: string,
+    description: string,
+    imagePortrait: string,
+  ): void {
     this.getUser();
     this.currentTitle = title;
     this.currentDescription = description;
     this.currentImagePortrait = imagePortrait;
   }
 
-  getUser(){
+  getUser() {
     this.userService.getUser().subscribe({
-      next: (response: any) => { //arrumar pra pegar o usuario certo
+      next: (response: any) => {
+        //arrumar pra pegar o usuario certo
         this.city = response.data.city;
         this.address = response.data.address;
         this.cep = response.data.cep;
-        this.number = response.data.number
+        this.number = response.data.number;
       },
       error: (err) => {
-        UIkit.notification("Erro ao carregar o usuário!", {pos: 'bottom-right', status: 'danger', timeout: 5000, group: 'notification-group-1'})
-      }
+        UIkit.notification('Erro ao carregar o usuário!', {
+          pos: 'bottom-right',
+          status: 'danger',
+          timeout: 5000,
+          group: 'notification-group-1',
+        });
+      },
     });
   }
 }

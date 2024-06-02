@@ -4,15 +4,14 @@ import { Observable } from 'rxjs';
 import { GenericResult } from 'src/app/models/generic-result.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private url: string = 'https://localhost:7080/api/';
 
-  private url: string = "https://localhost:7080/api/";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getUser() : Observable<GenericResult>{
+  getUser(): Observable<GenericResult> {
     return this.http.get<GenericResult>(`${this.url}user/account/v1`);
   }
 }

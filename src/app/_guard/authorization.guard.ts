@@ -3,11 +3,13 @@ import { CanActivate, Router } from '@angular/router';
 import { SecurityUtilsService } from '../services/security/security-utils.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthorizationGuard implements CanActivate {
-
-  constructor(private securityService: SecurityUtilsService, private router: Router) {}
+  constructor(
+    private securityService: SecurityUtilsService,
+    private router: Router,
+  ) {}
 
   canActivate(): boolean {
     if (this.securityService.isAuthenticated()) {

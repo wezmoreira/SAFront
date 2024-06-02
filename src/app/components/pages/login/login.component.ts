@@ -8,52 +8,50 @@ import { LoginService } from 'src/app/services/signup/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  
   public form: FormGroup;
 
   constructor(
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
-    private securityService: SecurityUtilsService)
-  {
+    private securityService: SecurityUtilsService,
+  ) {
     this.form = this.fb.group({
       password: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(50),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
       email: [
-        '', Validators.compose([
+        '',
+        Validators.compose([
           Validators.minLength(5),
           Validators.maxLength(150),
-          Validators.required
-        ])
+          Validators.required,
+        ]),
       ],
-    })
+    });
   }
 
-  login(){
-    this.loginService.login(this.form.value)
-    .subscribe( 
-      {
+  login() {
+    this.loginService.login(this.form.value).subscribe({
       next: (result: GenericResult) => {
-        if(result.success == true){
+        if (result.success == true) {
           this.securityService.grantedAuthorization(result.data);
           this.router.navigate(['home']);
-        }
-        else {
+        } else {
           console.log('login com problemas');
         }
       },
       error: (err) => {
-        console.log(err)
-      }
+        console.log(err);
+      },
     });
   }
 }
