@@ -9,3 +9,24 @@ body {
 button:disabled {
   background-color: rgba(0, 0, 0, 0.2) !important;
 }
+
+
+.uk-notification-message.uk-notification-message-danger {
+  text-align: center;
+  background-color: #FF5733;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);}
+
+.uk-notification-message.uk-notification-message-warning {
+  text-align: center;
+  background-color: #FFC300;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.uk-notification-message.uk-notification-message-success {
+  text-align: center;
+  background-color: #DAF7A6;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

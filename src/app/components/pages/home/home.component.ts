@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit {
         }
       },
       error: (err) => {
-        UIkit.notification('Erro ao carregar os cards!', {
+        UIkit.notification('Sem cards no momento!', {
           pos: 'bottom-right',
-          status: 'danger',
+          status: 'warning',
           timeout: 5000,
           group: 'notification-group-1',
         });

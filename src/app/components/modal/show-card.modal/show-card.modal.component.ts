@@ -24,7 +24,6 @@ export class ShowCardModalComponent implements OnChanges {
   @Input() public number: string = '';
 
   constructor() {
-    // console.log('sendo chamado ', this.city)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
