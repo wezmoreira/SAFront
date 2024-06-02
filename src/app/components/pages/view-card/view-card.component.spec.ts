@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewCardComponent } from './view-card.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ViewCardComponent', () => {
   let component: ViewCardComponent;
@@ -8,7 +10,8 @@ describe('ViewCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ViewCardComponent]
+      imports: [RouterTestingModule],
+      declarations: [ViewCardComponent, NavbarComponent]
     });
     fixture = TestBed.createComponent(ViewCardComponent);
     component = fixture.componentInstance;
