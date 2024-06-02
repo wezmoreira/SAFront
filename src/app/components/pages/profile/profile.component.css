@@ -1,0 +1,11 @@
+.container {
+    position: relative;
+    height: 100vh;
+}
+
+.conteudo {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    background-color: lightblue;
+}

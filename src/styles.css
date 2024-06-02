@@ -1,0 +1,11 @@
+body {
+  background-color: #fdfbe5 !important;
+}
+
+.uk-form-danger {
+  border: 2px solid #f7786b !important;
+}
+
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}

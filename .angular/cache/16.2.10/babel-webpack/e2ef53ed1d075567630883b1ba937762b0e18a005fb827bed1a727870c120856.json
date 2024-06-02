@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class PexelsResponse {\n  constructor() {\n    this.total_results = 0;\n    this.page = 0;\n    this.per_page = 0;\n    this.photos = [];\n    this.next_page = '';\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

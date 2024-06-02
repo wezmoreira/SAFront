@@ -1,0 +1,11 @@
+.full-screen-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.full-screen-image img {
+    width: 100%;
+    height: auto;
+}
