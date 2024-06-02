@@ -1,1 +1,0 @@
-{"ast":null,"code":"export var MessageType = /*#__PURE__*/function (MessageType) {\n  MessageType[MessageType[\"Error\"] = 0] = \"Error\";\n  MessageType[MessageType[\"Success\"] = 1] = \"Success\";\n  MessageType[MessageType[\"Alert\"] = 2] = \"Alert\";\n  return MessageType;\n}(MessageType || {});","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
