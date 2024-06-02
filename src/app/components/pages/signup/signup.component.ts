@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupDataService } from 'src/app/services/signup/signup-data.service';
-import UIkit from 'uikit';
+import { MessageService } from 'src/app/services/util/message.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,13 +10,18 @@ import UIkit from 'uikit';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-  public form: FormGroup;
+  public form!: FormGroup;
 
   constructor(
     private service: SignupDataService,
     private fb: FormBuilder,
     private router: Router,
+    private messageService: MessageService,
   ) {
+    this.validForm();
+  }
+
+  validForm() {
     this.form = this.fb.group({
       username: [
         '',
@@ -83,10 +88,8 @@ export class SignupComponent {
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.log(err);
+        this.messageService.alert('Erro ao cadastrar usuário.', 'danger', 'bottom-center', 5000, 'notification-group-1');
       },
     });
-
-    UIkit.notification('…', { pos: 'top-right' });
   }
 }

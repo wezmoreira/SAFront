@@ -3,7 +3,7 @@ import { CardPrincipal } from 'src/app/models/card-principal.model';
 import { GenericResult } from 'src/app/models/generic-result.model';
 import { CardService } from 'src/app/services/card/card.service';
 import { UserService } from 'src/app/services/user/user.service';
-import UIkit from 'uikit';
+import { MessageService } from 'src/app/services/util/message.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private cardService: CardService,
     private userService: UserService,
+    private messageService: MessageService,
   ) {}
 
   ngOnInit() {
@@ -45,12 +46,7 @@ export class HomeComponent implements OnInit {
         }
       },
       error: (err) => {
-        UIkit.notification('Sem cards no momento!', {
-          pos: 'bottom-right',
-          status: 'warning',
-          timeout: 5000,
-          group: 'notification-group-1',
-        });
+        this.messageService.alert('Sem cards no momento!', 'warning', 'top-left', 5000, 'notification-group-1');
       },
     });
   }
@@ -76,12 +72,7 @@ export class HomeComponent implements OnInit {
         this.number = response.data.number;
       },
       error: (err) => {
-        UIkit.notification('Erro ao carregar o usuário!', {
-          pos: 'bottom-right',
-          status: 'danger',
-          timeout: 5000,
-          group: 'notification-group-1',
-        });
+        this.messageService.alert('Erro ao carregar o usuário!', 'danger', 'top-left', 5000, 'notification-group-1');
       },
     });
   }

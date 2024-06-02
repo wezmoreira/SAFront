@@ -8,12 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./reset-password.component.css'],
 })
 export class ResetPasswordComponent {
-  public form: FormGroup;
+  public form!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
   ) {
+    this.reset();
+  }
+
+  reset() {
     this.form = this.fb.group({
       email: [
         '',
@@ -25,6 +29,4 @@ export class ResetPasswordComponent {
       ],
     });
   }
-
-  reset() {}
 }
