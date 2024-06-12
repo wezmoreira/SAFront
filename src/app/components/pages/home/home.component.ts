@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardPrincipal } from 'src/app/models/card-principal.model';
 import { GenericResult } from 'src/app/models/generic-result.model';
 import { CardService } from 'src/app/services/card/card.service';
@@ -22,6 +22,9 @@ export class HomeComponent implements OnInit {
   public cep: string = '';
   public number: string = '';
 
+  colors = ['6eadab', 'a2ad6e', '6e89ad', '6e70ad', '8b6ead', 'adab6e', 'ad6ea2', '868561'];
+
+
   constructor(
     private cardService: CardService,
     private userService: UserService,
@@ -36,6 +39,10 @@ export class HomeComponent implements OnInit {
     this.showComments = true;
   }
 
+  getRandomColor() {
+    return this.colors[Math.floor(Math.random() * this.colors.length)];
+  }
+
   loadCards() {
     this.cardService.getCards().subscribe({
       next: (response: GenericResult) => {
@@ -46,7 +53,7 @@ export class HomeComponent implements OnInit {
         }
       },
       error: (err) => {
-        this.messageService.alert('Sem cards no momento!', 'warning', 'top-left', 5000, 'notification-group-1');
+        this.messageService.alert('Sem cards no momento!', 'warning', 'bottom-center', 5000, 'notification-group-1');
       },
     });
   }
@@ -72,7 +79,7 @@ export class HomeComponent implements OnInit {
         this.number = response.data.number;
       },
       error: (err) => {
-        this.messageService.alert('Erro ao carregar o usuário!', 'danger', 'top-left', 5000, 'notification-group-1');
+        this.messageService.alert('Erro ao carregar o usuário!', 'danger', 'bottom-center', 5000, 'notification-group-1');
       },
     });
   }

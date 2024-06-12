@@ -30,64 +30,19 @@
   <div class="uk-container">
     <div uk-grid>
       <div class="uk-width-2-4" *ngFor="let card of cardPrincipal">
-        <!-- <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-
-          <div class="uk-card-media-left uk-cover-container">
-              <img [src]="card.imageLarge" alt="" uk-cover>
-              <canvas width="600" height="400"></canvas>
-          </div>
-    
-          <div class="body-card-style">
-              <div class="uk-card-body" style="text-align: center;">
-                  <h3 class="uk-card-title card-title">{{ card.title }}</h3>
-              </div>
-    
-              <div class="body-button-div">
-                <a class="uk-button uk-button-default body-button-style" href="#modal-full" uk-toggle (click)="showCardDetails(card.title, card.description, card.imagePortrait)">
-                  <span class="uk-icon uk-margin-small-right" uk-icon="icon: pencil"></span>
-                  Visualizar
-                </a>
-                <show-card-modal
-                [comments]="showComments"
-                [title]="currentTitle"
-                [description]="currentDescription"
-                [imagePortrait]="currentImagePortrait"
-                [city]="city"
-                [address]="address"
-                [cep]="cep"
-                [number]="number">
-                </show-card-modal>
-              </div>
-          </div>         
-        </div> -->
-
-        <!-- <div class="uk-card uk-card-default uk-width-1-1@m" style="text-align: center;">
-          <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                  <div class="uk-width-expand">
-                      <h3 class="uk-card-title uk-margin-remove-bottom">{{ card.title }}</h3>
-                  </div>
-              </div>
-          </div>
-          <div class="uk-card-body">
-              <p>{{ card.description }}</p>
-          </div>
-          <div class="uk-card-footer">
-              <a href="#" class="uk-button uk-button-text">Read more</a>
-          </div>
-        </div> -->
-
         <div
           class="uk-card uk-card-default uk-width-1-1@m"
-          style="text-align: center"
+          style="text-align: center; border-radius: 10px;"
         >
-          <div style="height: 500px">
-            <div class="uk-card uk-card-hover uk-card-body">
+          <div style="height: 500px;">
+            <div class="uk-card uk-card-body">
               <h3 class="uk-card-title">{{ card.title }}</h3>
             </div>
-            <div class="uk-card-body" style="margin-top: 50px">
-              <a href="#"><span class="button dimond">DIAMOND</span></a>
-              <p>{{ card.description }}</p>
+
+            <div class="uk-card-body" style="margin-top: 50px; position: relative;">
+              <div class="line"></div>
+              <div class="seal"></div>
+              <div class="seal-content" [ngStyle]="{'background-color': getRandomColor()}"> ABRIR </div>
             </div>
           </div>
         </div>
