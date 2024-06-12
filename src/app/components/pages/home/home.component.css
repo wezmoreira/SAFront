@@ -47,6 +47,16 @@
     z-index: 1;
   }
   
+  .line-lace  {
+	background-image: radial-gradient(circle at 15px 0, rgba(255,255,255,0) 14px, #fff 15px, rgba(255,255,255,0) 16px),
+					radial-gradient(circle at 15px 0, rgba(255,255,255,0) 14px, #fff 15px, rgba(255,255,255,0) 16px),
+					radial-gradient(circle at 15px 0, rgba(255,255,255,0) 4px, #fff 5px, rgba(255,255,255,0) 6px),
+					radial-gradient(circle at 5px 5px, rgba(255,255,255,0) 1px, #fff 2px, rgba(255,255,255,0) 3px);
+	background-repeat: repeat-x;
+	background-position: 0 0, 15px 6px, 0 0, 25px 9px;
+	background-size: 30px 21px, 30px 21px, 30px 21px, 30px 20px;
+}
+
   .seal {
     position: absolute;
     top: -10px;

@@ -32,7 +32,7 @@
       <div class="uk-width-2-4" *ngFor="let card of cardPrincipal">
         <div
           class="uk-card uk-card-default uk-width-1-1@m"
-          style="text-align: center; border-radius: 10px;"
+          style="text-align: center; border-radius: 10px; background-color: #f5f5f5; box-shadow: 0 5px 15px rgba(0,0,0,0.3);"
         >
           <div style="height: 500px;">
             <div class="uk-card uk-card-body">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="uk-card-body" style="margin-top: 50px; position: relative;">
-              <div class="line"></div>
+              <div class="line line-lace"></div>
               <div class="seal"></div>
               <div class="seal-content" [ngStyle]="{'background-color': getRandomColor()}"> ABRIR </div>
             </div>
