@@ -36,17 +36,36 @@
         >
           <div style="height: 500px;">
             <div class="uk-card uk-card-body">
-              <h3 class="uk-card-title">{{ card.title }}</h3>
+              <h3 class="uk-card-title title-style">{{ card.title }}</h3>
             </div>
 
             <div class="uk-card-body" style="margin-top: 50px; position: relative;">
               <div class="line line-lace"></div>
-              <div class="seal"></div>
+
+              <a href="#modal-full" id="js-modal-prompt" class="seal"  (click)="showCardDetails(card.title, card.description, card.imagePortrait, card.id)" uk-toggle></a>
               <div class="seal-content" [ngStyle]="{'background-color': getRandomColor()}"> ABRIR </div>
+              <show-card-modal
+                [comments]="showComments"
+                [title]="currentTitle"
+                [description]="currentDescription"
+                [imagePortrait]="currentImagePortrait"
+                [city]="city"
+                [address]="address"
+                [cep]="cep"
+                [number]="number">
+              </show-card-modal>
+
             </div>
+          </div>
+          <div>
+            <p class="info-style">Por: Wesley Moreira</p>
+            <p class="info-style">De: Maringá - PR</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<a (click)="teste()"> CLIQUE AQYU</a>

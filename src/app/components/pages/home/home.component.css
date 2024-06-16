@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 .default-body {
     padding-bottom: 20px;
 }
@@ -70,6 +73,7 @@
     background: url("../../../../assets/images/border.png") no-repeat;
     background-size: 100% 100%;
     padding: 10px;
+    animation: pulse 2s infinite; 
   }
 
   .seal-content {
@@ -77,7 +81,7 @@
     top: 0;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     z-index: 22;
     height: 100px;
     width: 100px;
@@ -91,10 +95,38 @@
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;   
+    animation: pulse 2s infinite; 
   }
 
 
   .modal-class {
     border-radius: 10px;
+  }
+
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1) translate(-48%);
+    }
+    50% {
+      transform: scale(1.1) translate(-48%);
+    }
+    100% {
+      transform: scale(1) translate(-48%);
+    }
+  }
+  
+  .title-style {
+    font-family: "Courgette", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: #494949;
+  }
+
+  .info-style {
+    font-family: "Merienda", cursive;
+    display: inline-block;
+    padding-bottom: 20px;
+    margin-right: 30px;
   }

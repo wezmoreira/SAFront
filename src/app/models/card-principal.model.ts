@@ -1,6 +1,7 @@
 import { ICardPrincipal } from '../interfaces/card-principal.interface';
 
 export class CardPrincipal implements ICardPrincipal {
+  public id: string;
   public title: string;
   public description: string;
   public imageLarge: string;
@@ -12,6 +13,7 @@ export class CardPrincipal implements ICardPrincipal {
   public date: Date;
 
   constructor() {
+    this.id = '';
     this.title = '';
     this.description = '';
     this.imageLarge = '';
