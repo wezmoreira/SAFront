@@ -16,6 +16,7 @@ import { ViewCardComponent } from './components/pages/view-card/view-card.compon
 import { ShowCardModalComponent } from './components/modal/show-card.modal/show-card.modal.component';
 import { AddCardModalComponent } from './components/modal/add-card-modal/add-card-modal.component';
 import { InterceptorService } from './services/security/interceptor.service';
+import { EditProfileComponent } from './components/modal/profile/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InterceptorService } from './services/security/interceptor.service';
     ViewCardComponent,
     ShowCardModalComponent,
     AddCardModalComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
