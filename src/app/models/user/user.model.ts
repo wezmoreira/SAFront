@@ -6,8 +6,9 @@ export class UserModel {
     public state: string;
     public address: string;
     public cep: string;
-    public number: number;
+    public number: string;
     public role: string;
+    public password: string;
     public active: boolean;
   
     constructor() {
@@ -18,8 +19,9 @@ export class UserModel {
       this.state = '';
       this.address = '';
       this.cep = '';
-      this.number = 0;
+      this.number = '';
       this.role = '';
+      this.password = '';
       this.active = true;
     }
   }

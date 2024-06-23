@@ -1,0 +1,30 @@
+.button-style {
+    color: #36486b !important;
+}
+
+.edit-profile-style {
+    background-color: #f4f8fa;
+}
+
+.text-style {
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    color: #36486b;
+}
+
+.button-save-style {
+    background-color: #36486b;
+}
+
+.button-save-style:hover {
+    background-color: #566b96;
+}
+
+.button-cancel-style {
+    background-color: #f4f8fa;
+}
+
+.button-cancel-style:hover {
+    background-color: #d3d9dd;
+}

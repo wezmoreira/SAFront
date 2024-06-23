@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardPrincipal } from 'src/app/models/card-principal.model';
 import { GenericResult } from 'src/app/models/generic-result.model';
-import { UserModel } from 'src/app/models/user/user.model';
 import { CardService } from 'src/app/services/card/card.service';
-import { UserService } from 'src/app/services/user/user.service';
 import { MessageService } from 'src/app/services/util/message.service';
 import UIkit from 'uikit';
 
@@ -32,7 +30,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private cardService: CardService,
-    private userService: UserService,
     private messageService: MessageService,
   ) {}
 
@@ -64,30 +61,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // showCardDetails(
-  //   title: string,
-  //   description: string,
-  //   imagePortrait: string,
-  //   cardId: string,
-  //   userId: string,
-  //   city: string,
-  //   address: string,
-  //   number: string,
-  //   cep: string,
-  // ): void {
-  //   this.userInformation(userId);
-  //   this.currentTitle = title;
-  //   this.currentDescription = description;
-  //   this.currentImagePortrait = imagePortrait;
-  //   this.currentCardId = cardId;
-  //   this.cardUserActualId = userId;
-  //   this.city = city;
-  //   this.address = address;
-  //   this.number = number;
-  //   this.cep = cep;
-  // }
-
-
   public actualCard: CardPrincipal = new CardPrincipal();
   showCardDetails(cardActual: CardPrincipal){
     this.actualCard = cardActual;
@@ -99,21 +72,5 @@ export class HomeComponent implements OnInit {
     UIkit.modal.prompt('Name:', 'Your name').then((name: any) => {
       console.log('Prompted:', name);
     });
-  }
-
-  // public user!: UserModel;
-
-
-  // // userInformation(userId: string) {
-  // //   this.userService.getUserById(userId).subscribe({
-  // //     next: (response) => {
-  // //       console.log('response', response);
-  // //       this.user = response.data;
-  // //       console.log('user', this.user);
-  // //     }, 
-  // //     error: (err) => {
-  // //       console.log('error', err) 
-  // //     }});
-  // // }
-  
+  }  
 }

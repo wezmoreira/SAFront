@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserModel } from 'src/app/models/user/user.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent {
-  public email: string = '';
-  public username: string = '';
+  public user: UserModel = new UserModel();
 
-  constructor() {}
+  constructor(private userService: UserService) {
+    this.userInformation();
+  }
 
-  userInformation() {}
+  userInformation() {
+    this.userService.getUser().subscribe((result) => {
+      console.log('result', result)
+      this.user = result.data;
+    });
+  }
+
 }
