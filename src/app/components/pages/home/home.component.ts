@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   public currentDescription: string = '';
   public currentImagePortrait: string = '';
   public currentCardId: string = '';
-  public cardUserActualId: string = '';  // TODO - remover
+  public cardUserActualId: string = ''; // TODO - remover
 
   public city: string = '';
   public address: string = '';
@@ -25,8 +25,16 @@ export class HomeComponent implements OnInit {
   public number: string = '';
   public state: string = '';
 
-  colors = ['6eadab', 'a2ad6e', '6e89ad', '6e70ad', '8b6ead', 'adab6e', 'ad6ea2', '868561'];
-
+  colors = [
+    '6eadab',
+    'a2ad6e',
+    '6e89ad',
+    '6e70ad',
+    '8b6ead',
+    'adab6e',
+    'ad6ea2',
+    '868561',
+  ];
 
   constructor(
     private cardService: CardService,
@@ -49,28 +57,34 @@ export class HomeComponent implements OnInit {
     this.cardService.getCards().subscribe({
       next: (response: GenericResult) => {
         if (Array.isArray(response.data)) {
-          console.log('response.data', response.data)
+          console.log('response.data', response.data);
           this.cardPrincipal = response.data;
         } else {
           this.cardPrincipal.push(response.data);
         }
       },
       error: (err) => {
-        this.messageService.alert('Sem cards no momento!', 'warning', 'bottom-center', 5000, 'notification-group-1');
+        this.messageService.alert(
+          'Sem cards no momento!',
+          'warning',
+          'bottom-center',
+          5000,
+          'notification-group-1',
+        );
       },
     });
   }
 
   public actualCard: CardPrincipal = new CardPrincipal();
-  showCardDetails(cardActual: CardPrincipal){
+  showCardDetails(cardActual: CardPrincipal) {
     this.actualCard = cardActual;
   }
 
-  teste(){
+  teste() {
     console.log('chamando teste');
 
     UIkit.modal.prompt('Name:', 'Your name').then((name: any) => {
       console.log('Prompted:', name);
     });
-  }  
+  }
 }

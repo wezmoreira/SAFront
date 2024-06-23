@@ -33,7 +33,10 @@ export class ShowCardModalComponent implements OnInit, AfterViewInit {
 
   public form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+  ) {}
 
   ngAfterViewInit(): void {
     console.log('comments', this.cardUserId);
@@ -43,11 +46,10 @@ export class ShowCardModalComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.validComment();
 
-
     // this.userInformation();
   }
 
-  validComment(){
+  validComment() {
     this.form = this.fb.group({
       comment: [
         '',
@@ -66,19 +68,18 @@ export class ShowCardModalComponent implements OnInit, AfterViewInit {
         console.log('response', response);
         this.user = response.data;
         console.log('user', this.user);
-      }, 
-      error: (err) => {
-
-      }});
+      },
+      error: (err) => {},
+    });
   }
 
-  comment(){
-    if(!this.form.valid){
-      console.log("invalido");
+  comment() {
+    if (!this.form.valid) {
+      console.log('invalido');
       return;
     }
-    
-    console.log(this.form.value.comment)
+
+    console.log(this.form.value.comment);
     this.form.reset();
   }
 

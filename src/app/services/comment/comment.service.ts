@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CommentModel } from 'src/app/models/comment/comment.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommentService {
   private url: string = 'https://localhost:7080/api/';

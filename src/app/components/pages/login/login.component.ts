@@ -52,11 +52,23 @@ export class LoginComponent {
           this.securityService.grantedAuthorization(result.data);
           this.router.navigate(['home']);
         } else {
-          this.messageService.alert('Não foi possível fazer o login.', 'warning', 'bottom-center', 5000, 'notification-group-1');
+          this.messageService.alert(
+            'Não foi possível fazer o login.',
+            'warning',
+            'bottom-center',
+            5000,
+            'notification-group-1',
+          );
         }
       },
       error: (err) => {
-        this.messageService.alert('Erro desconhecido.', 'danger', 'bottom-center', 5000, 'notification-group-1');
+        this.messageService.alert(
+          'Erro desconhecido.',
+          'danger',
+          'bottom-center',
+          5000,
+          'notification-group-1',
+        );
       },
     });
   }

@@ -1,6 +1,15 @@
-<div id="modal-full" class="uk-modal-full" style="background-color:#f5f5f5" uk-modal>
+<div
+  id="modal-full"
+  class="uk-modal-full"
+  style="background-color: #f5f5f5"
+  uk-modal
+>
   <div class="uk-modal-dialog">
-    <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    <button
+      class="uk-modal-close-full uk-close-large"
+      type="button"
+      uk-close
+    ></button>
 
     <div class="uk-grid-collapse uk-child-width-1-2@s" uk-grid>
       <div
@@ -12,18 +21,21 @@
         <h1>{{ card.title }}</h1>
         <p>{{ card.description }}</p>
         <p class="address-style">{{ formatAddress() }}</p>
-        
+
         <form [formGroup]="form">
           <div class="uk-margin input-button-container">
-            <input 
-            class="uk-input uk-form-width-large" 
-            type="text" 
-            placeholder="Digite seu comentário aqui!" 
-            aria-label="Large"
-            formControlName="comment"
-            class="uk-input uk-form-large"
-            [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }">
-            <button class="button-57" role="button" (click)="comment()"><span class="text">Comentar</span><span>Faça a diferença!</span></button>
+            <input
+              class="uk-input uk-form-width-large"
+              type="text"
+              placeholder="Digite seu comentário aqui!"
+              aria-label="Large"
+              formControlName="comment"
+              class="uk-input uk-form-large"
+              [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }"
+            />
+            <button class="button-57" role="button" (click)="comment()">
+              <span class="text">Comentar</span><span>Faça a diferença!</span>
+            </button>
           </div>
         </form>
 

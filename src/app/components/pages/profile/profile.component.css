@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 .container {
     position: relative;
     height: 100vh;
@@ -72,4 +74,14 @@
   
   .button-79:not(:disabled):active {
     transform: translateY(.125rem);
+  }
+
+  .profile-style {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background-color: #727f97;
+    color: aliceblue;
   }

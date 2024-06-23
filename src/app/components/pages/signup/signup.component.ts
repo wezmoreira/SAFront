@@ -96,7 +96,13 @@ export class SignupComponent {
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        this.messageService.alert('Erro ao cadastrar usuário.', 'danger', 'bottom-center', 5000, 'notification-group-1');
+        this.messageService.alert(
+          'Erro ao cadastrar usuário.',
+          'danger',
+          'bottom-center',
+          5000,
+          'notification-group-1',
+        );
       },
     });
   }

@@ -22,13 +22,16 @@ export class UserService {
 
   updateUser(data: any): Observable<GenericResult> {
     const filteredData = Object.fromEntries(
-      Object.entries(data).filter(([key, value]) => value !== '')
+      Object.entries(data).filter(([key, value]) => value !== ''),
     );
-  
+
     const payload = {
-      UpdatedFields: filteredData
+      UpdatedFields: filteredData,
     };
     console.log('payload', payload);
-    return this.http.put<GenericResult>(`${this.url}account-update/v1`, payload);
+    return this.http.put<GenericResult>(
+      `${this.url}account-update/v1`,
+      payload,
+    );
   }
 }

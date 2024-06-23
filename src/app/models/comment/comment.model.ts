@@ -1,8 +1,7 @@
 export class CommentModel {
-    public comment: string;
-  
-    constructor() {
-      this.comment = '';
-    }
+  public comment: string;
+
+  constructor() {
+    this.comment = '';
   }
-  
+}

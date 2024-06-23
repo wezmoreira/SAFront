@@ -32,18 +32,37 @@
       <div class="uk-width-2-4" *ngFor="let card of cardPrincipal">
         <div
           class="uk-card uk-card-default uk-width-1-1@m"
-          style="text-align: center; border-radius: 10px; background-color: #f5f5f5; box-shadow: 0 5px 15px rgba(0,0,0,0.3);"
+          style="
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          "
         >
-          <div style="height: 500px;">
+          <div style="height: 500px">
             <div class="uk-card uk-card-body">
               <h3 class="uk-card-title title-style">{{ card.title }}</h3>
             </div>
 
-            <div class="uk-card-body" style="margin-top: 50px; position: relative;">
+            <div
+              class="uk-card-body"
+              style="margin-top: 50px; position: relative"
+            >
               <div class="line line-lace"></div>
 
-              <a href="#modal-full" id="js-modal-prompt" class="seal"  (click)="showCardDetails(card)" uk-toggle></a>
-              <div class="seal-content" [ngStyle]="{'background-color': getRandomColor()}"> ABRIR </div>
+              <a
+                href="#modal-full"
+                id="js-modal-prompt"
+                class="seal"
+                (click)="showCardDetails(card)"
+                uk-toggle
+              ></a>
+              <div
+                class="seal-content"
+                [ngStyle]="{ 'background-color': getRandomColor() }"
+              >
+                ABRIR
+              </div>
               <app-show-card-modal
                 [comments]="showComments"
                 [title]="currentTitle"
@@ -53,20 +72,21 @@
                 [address]="address"
                 [cep]="cep"
                 [number]="number"
-                [card]="actualCard">
+                [card]="actualCard"
+              >
               </app-show-card-modal>
-
             </div>
           </div>
           <div>
             <p class="info-style">Por: {{ card.user.username }}</p>
-            <p class="info-style">De: {{ card.user.city }} - {{ card.user.state }}</p>
+            <p class="info-style">
+              De: {{ card.user.city }} - {{ card.user.state }}
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <a (click)="teste()"> CLIQUE AQYU</a>
