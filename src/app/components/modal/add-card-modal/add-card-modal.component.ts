@@ -20,6 +20,7 @@ export class AddCardModalComponent {
     private cardUtils: CardUtils,
     private cardService: CardService,
   ) {
+    console.log('AddCardModalComponent')
     this.form = this.fb.group({
       titulo: [
         '',

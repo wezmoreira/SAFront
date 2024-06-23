@@ -1,4 +1,5 @@
 import { ICardPrincipal } from '../interfaces/card-principal.interface';
+import { UserModel } from './user/user.model';
 
 export class CardPrincipal implements ICardPrincipal {
   public id: string;
@@ -11,6 +12,7 @@ export class CardPrincipal implements ICardPrincipal {
   public imageTiny: string;
   public userId: string;
   public date: Date;
+  public user: UserModel;
 
   constructor() {
     this.id = '';
@@ -23,5 +25,6 @@ export class CardPrincipal implements ICardPrincipal {
     this.imageTiny = '';
     this.userId = '';
     this.date = new Date();
+    this.user = new UserModel();
   }
 }

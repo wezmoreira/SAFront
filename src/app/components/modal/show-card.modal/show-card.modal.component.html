@@ -5,58 +5,27 @@
     <div class="uk-grid-collapse uk-child-width-1-2@s" uk-grid>
       <div
         class="uk-background-cover"
-        style="background-image: url({{ imagePortrait }});"
+        style="background-image: url({{ card.imagePortrait }});"
         uk-height-viewport
       ></div>
       <div class="uk-padding-large">
-        <h1>{{ title }}</h1>
-        <p>{{ description }}</p>
-        <p>{{ city }}</p>
+        <h1>{{ card.title }}</h1>
+        <p>{{ card.description }}</p>
+        <p class="address-style">{{ formatAddress() }}</p>
         
-          <form [formGroup]="form">
-            <!-- <div class="uk-margin" uk-form-custom="target: true">
-              <input
-                class="uk-input uk-form-large input-style"
-                formControlName="comment"
-                type="text"
-                placeholder="Comente aqui!"
-                [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }"
-              />
-              <button class="button-57" role="button" (click)="comment()"><span class="text">Comentar</span><span>Faça a diferença!</span></button>
-            </div> -->
-
-            <div class="uk-margin input-button-container">
-              <input 
-              class="uk-input uk-form-width-large" 
-              type="text" 
-              placeholder="Digite seu comentário aqui!" 
-              aria-label="Large"
-              formControlName="comment"
-              class="uk-input uk-form-large"
-              [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }">
-              <button class="button-57" role="button" (click)="comment()"><span class="text">Comentar</span><span>Faça a diferença!</span></button>
+        <form [formGroup]="form">
+          <div class="uk-margin input-button-container">
+            <input 
+            class="uk-input uk-form-width-large" 
+            type="text" 
+            placeholder="Digite seu comentário aqui!" 
+            aria-label="Large"
+            formControlName="comment"
+            class="uk-input uk-form-large"
+            [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }">
+            <button class="button-57" role="button" (click)="comment()"><span class="text">Comentar</span><span>Faça a diferença!</span></button>
           </div>
-<!-- 
-            <div class="uk-margin" uk-margin>
-              <div uk-form-custom="target: true">
-                <input
-                class="uk-input uk-form-large"
-                formControlName="comment"
-                type="text"
-                placeholder="Comente aqui!"
-                [ngClass]="{ 'uk-form-danger': !form.controls['comment'].valid }"
-                />
-              </div>
-              <button class="button-57" role="button" (click)="comment()"><span class="text">Comentar</span><span>Faça a diferença!</span></button>
-          </div> -->
-
-
-
-
-
-
-
-          </form>
+        </form>
 
         <div class="comments-container" *ngIf="true">
           <ul class="uk-comment-list">

@@ -55,6 +55,14 @@ export class SignupComponent {
           Validators.required,
         ]),
       ],
+      state: [
+        '',
+        Validators.compose([
+          Validators.minLength(2),
+          Validators.maxLength(2),
+          Validators.required,
+        ]),
+      ],
       cep: [
         '',
         Validators.compose([

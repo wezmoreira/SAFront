@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardPrincipal } from 'src/app/models/card-principal.model';
 import { GenericResult } from 'src/app/models/generic-result.model';
+import { UserModel } from 'src/app/models/user/user.model';
 import { CardService } from 'src/app/services/card/card.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { MessageService } from 'src/app/services/util/message.service';
@@ -18,12 +19,13 @@ export class HomeComponent implements OnInit {
   public currentDescription: string = '';
   public currentImagePortrait: string = '';
   public currentCardId: string = '';
+  public cardUserActualId: string = '';  // TODO - remover
 
   public city: string = '';
   public address: string = '';
   public cep: string = '';
   public number: string = '';
-
+  public state: string = '';
 
   colors = ['6eadab', 'a2ad6e', '6e89ad', '6e70ad', '8b6ead', 'adab6e', 'ad6ea2', '868561'];
 
@@ -61,34 +63,34 @@ export class HomeComponent implements OnInit {
       },
     });
   }
-  
-  showCardDetails(
-    title: string,
-    description: string,
-    imagePortrait: string,
-    cardId: string
-  ): void {
-    console.log('chamando showCardDetails', title, description, imagePortrait, cardId);
-    this.getUser();
-    this.currentTitle = title;
-    this.currentDescription = description;
-    this.currentImagePortrait = imagePortrait;
-    this.currentCardId = cardId;
-  }
 
-  getUser() {
-    this.userService.getUser().subscribe({
-      next: (response: any) => {
-        //arrumar pra pegar o usuario certo
-        this.city = response.data.city;
-        this.address = response.data.address;
-        this.cep = response.data.cep;
-        this.number = response.data.number;
-      },
-      error: (err) => {
-        // this.messageService.alert('Erro ao carregar o usuário!', 'danger', 'bottom-center', 5000, 'notification-group-1');
-      },
-    });
+  // showCardDetails(
+  //   title: string,
+  //   description: string,
+  //   imagePortrait: string,
+  //   cardId: string,
+  //   userId: string,
+  //   city: string,
+  //   address: string,
+  //   number: string,
+  //   cep: string,
+  // ): void {
+  //   this.userInformation(userId);
+  //   this.currentTitle = title;
+  //   this.currentDescription = description;
+  //   this.currentImagePortrait = imagePortrait;
+  //   this.currentCardId = cardId;
+  //   this.cardUserActualId = userId;
+  //   this.city = city;
+  //   this.address = address;
+  //   this.number = number;
+  //   this.cep = cep;
+  // }
+
+
+  public actualCard: CardPrincipal = new CardPrincipal();
+  showCardDetails(cardActual: CardPrincipal){
+    this.actualCard = cardActual;
   }
 
   teste(){
@@ -98,5 +100,20 @@ export class HomeComponent implements OnInit {
       console.log('Prompted:', name);
     });
   }
+
+  // public user!: UserModel;
+
+
+  // // userInformation(userId: string) {
+  // //   this.userService.getUserById(userId).subscribe({
+  // //     next: (response) => {
+  // //       console.log('response', response);
+  // //       this.user = response.data;
+  // //       console.log('user', this.user);
+  // //     }, 
+  // //     error: (err) => {
+  // //       console.log('error', err) 
+  // //     }});
+  // // }
   
 }

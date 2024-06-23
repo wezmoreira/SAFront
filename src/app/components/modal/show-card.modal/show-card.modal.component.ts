@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   Input,
   OnChanges,
@@ -6,13 +7,16 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CardPrincipal } from 'src/app/models/card-principal.model';
+import { UserModel } from 'src/app/models/user/user.model';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
-  selector: 'show-card-modal',
+  selector: 'app-show-card-modal',
   templateUrl: './show-card.modal.component.html',
   styleUrls: ['./show-card.modal.component.css'],
 })
-export class ShowCardModalComponent implements OnChanges, OnInit {
+export class ShowCardModalComponent implements OnInit, AfterViewInit {
   @Input() public comments: boolean = false;
   @Input() public title: string = '';
   @Input() public description: string = '';
@@ -21,19 +25,26 @@ export class ShowCardModalComponent implements OnChanges, OnInit {
   @Input() public address: string = '';
   @Input() public cep: string = '';
   @Input() public number: string = '';
+  @Input() public cardUserId: string = '';
+
+  @Input() public user!: UserModel;
+
+  @Input() card: CardPrincipal = new CardPrincipal();
 
   public form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
+
+  ngAfterViewInit(): void {
+    console.log('comments', this.cardUserId);
+    console.log('comments', this.description);
+  }
 
   ngOnInit(): void {
     this.validComment();
-  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if ('comments' in changes) {
-      this.comments = changes['comments'].currentValue;
-    }
+
+    // this.userInformation();
   }
 
   validComment(){
@@ -49,6 +60,18 @@ export class ShowCardModalComponent implements OnChanges, OnInit {
     });
   }
 
+  userInformation() {
+    this.userService.getUserById(this.cardUserId).subscribe({
+      next: (response) => {
+        console.log('response', response);
+        this.user = response.data;
+        console.log('user', this.user);
+      }, 
+      error: (err) => {
+
+      }});
+  }
+
   comment(){
     if(!this.form.valid){
       console.log("invalido");
@@ -57,5 +80,9 @@ export class ShowCardModalComponent implements OnChanges, OnInit {
     
     console.log(this.form.value.comment)
     this.form.reset();
+  }
+
+  formatAddress() {
+    return `${this.card.user.address}, ${this.card.user.number} | ${this.card.user.city} - ${this.card.user.state}  ${this.card.user.cep}`;
   }
 }

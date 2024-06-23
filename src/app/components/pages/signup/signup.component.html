@@ -43,18 +43,28 @@
           />
         </div>
 
-        <div class="uk-margin">
+        <div class="uk-margin" style="display: flex; gap: 10px;">
           <input
+            style="flex: 4;"
             class="uk-input uk-form-large"
             formControlName="city"
             type="text"
             placeholder="Cidade"
             [ngClass]="{ 'uk-form-danger': !form.controls['city'].valid }"
           />
-        </div>
 
-        <div class="uk-margin">
           <input
+            style="flex: 1;"
+            class="uk-input uk-form-large"
+            formControlName="state"
+            type="text"
+            placeholder="Estado"
+            [ngClass]="{ 'uk-form-danger': !form.controls['state'].valid }"
+            maxlength="2"
+          />
+
+          <input
+            style="flex: 1;"
             class="uk-input uk-form-large"
             formControlName="cep"
             type="text"
@@ -63,22 +73,21 @@
           />
         </div>
 
-        <div class="uk-margin">
+        <div class="uk-margin" style="display: flex; gap: 10px;">
           <input
+            style="flex: 4;"
             class="uk-input uk-form-large"
             formControlName="address"
             type="text"
-            placeholder="Address"
+            placeholder="Endereço"
             [ngClass]="{ 'uk-form-danger': !form.controls['address'].valid }"
           />
-        </div>
-
-        <div class="uk-margin">
           <input
+            style="flex: 1;"
             class="uk-input uk-form-large"
             formControlName="number"
             type="text"
-            placeholder="Number"
+            placeholder="Número"
             [ngClass]="{ 'uk-form-danger': !form.controls['number'].valid }"
           />
         </div>
