@@ -6,22 +6,17 @@ import { MyCardsComponent } from './components/pages/my-cards/my-cards.component
 import { LoginComponent } from './components/pages/login/login.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { ResetPasswordComponent } from './components/pages/reset-password/reset-password.component';
-import { ViewCardComponent } from './components/pages/view-card/view-card.component';
 import { AuthorizationGuard } from './_guard/authorization.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    component: HomeComponent,
   },
 
   {
     path: 'home',
     component: HomeComponent,
-  },
-  {
-    path: 'view-card',
-    component: ViewCardComponent,
   },
   {
     path: 'user',
@@ -31,11 +26,11 @@ const routes: Routes = [
         component: ProfileComponent,
         // canActivate: [AuthorizationGuard]
       },
-      {
-        path: 'cards',
-        component: MyCardsComponent,
-        // canActivate: [AuthorizationGuard]
-      },
+      // {
+      //   path: 'cards',
+      //   component: MyCardsComponent,
+      //   // canActivate: [AuthorizationGuard]
+      // },
     ],
   },
   {
@@ -46,10 +41,10 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
-  {
-    path: 'resetpassword',
-    component: ResetPasswordComponent,
-  },
+  // {
+  //   path: 'resetpassword',
+  //   component: ResetPasswordComponent,
+  // },
   {
     path: '**',
     redirectTo: 'home',

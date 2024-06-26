@@ -62,23 +62,6 @@ export class CardUtils {
     });
   }
 
-  // public async sortHopeImages(): Promise<string> {
-  //     const pagina = this.getRandomNumber(1, 10);
-  //     const imagem = this.getRandomNumber(1, 15);
-
-  //     return new Promise<string>((resolve, reject) => {
-  //         this.imageService.getHopeImagesPexels(pagina).subscribe({
-  //         next: (response: PexelsResponse) => {
-  //             resolve(response.photos[imagem].src.large); // refatorar
-  //         },
-  //         error: (err) => {
-  //             console.log(err);
-  //             reject(err);
-  //         }
-  //         });
-  //     });
-  // }
-
   public getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }

@@ -12,18 +12,7 @@ import UIkit from 'uikit';
 })
 export class HomeComponent implements OnInit {
   public cardPrincipal: CardPrincipal[] = [];
-  public showComments: boolean = false;
-  public currentTitle: string = '';
-  public currentDescription: string = '';
-  public currentImagePortrait: string = '';
-  public currentCardId: string = '';
-  public cardUserActualId: string = ''; // TODO - remover
-
-  public city: string = '';
-  public address: string = '';
-  public cep: string = '';
-  public number: string = '';
-  public state: string = '';
+  public actualCard: CardPrincipal = new CardPrincipal();
 
   colors = [
     '6eadab',
@@ -43,10 +32,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadCards();
-  }
-
-  public showCommentsOnClick(): void {
-    this.showComments = true;
   }
 
   getRandomColor() {
@@ -75,16 +60,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public actualCard: CardPrincipal = new CardPrincipal();
   showCardDetails(cardActual: CardPrincipal) {
     this.actualCard = cardActual;
-  }
-
-  teste() {
-    console.log('chamando teste');
-
-    UIkit.modal.prompt('Name:', 'Your name').then((name: any) => {
-      console.log('Prompted:', name);
-    });
   }
 }

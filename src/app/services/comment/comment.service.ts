@@ -11,6 +11,10 @@ export class CommentService {
   constructor(private http: HttpClient) {}
 
   addComment(body: CommentModel) {
-    return this.http.post(`${this.url}v1/comments/new-comment`, body);
+    return this.http.post(`${this.url}new-comment`, body);
+  }
+
+  getComments() {
+    return this.http.get(`${this.url}load-comments`);
   }
 }

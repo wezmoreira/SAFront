@@ -1,52 +1,31 @@
 import {
-  AfterViewInit,
   Component,
   Input,
-  OnChanges,
   OnInit,
-  SimpleChanges,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CardPrincipal } from 'src/app/models/card-principal.model';
-import { UserModel } from 'src/app/models/user/user.model';
-import { UserService } from 'src/app/services/user/user.service';
+import { CommentService } from 'src/app/services/comment/comment.service';
+import { MessageService } from 'src/app/services/util/message.service';
 
 @Component({
   selector: 'app-show-card-modal',
   templateUrl: './show-card.modal.component.html',
   styleUrls: ['./show-card.modal.component.css'],
 })
-export class ShowCardModalComponent implements OnInit, AfterViewInit {
-  @Input() public comments: boolean = false;
-  @Input() public title: string = '';
-  @Input() public description: string = '';
-  @Input() public imagePortrait: string = '';
-  @Input() public city: string = '';
-  @Input() public address: string = '';
-  @Input() public cep: string = '';
-  @Input() public number: string = '';
-  @Input() public cardUserId: string = '';
-
-  @Input() public user!: UserModel;
-
+export class ShowCardModalComponent implements OnInit {
   @Input() card: CardPrincipal = new CardPrincipal();
 
   public form!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    private commentService: CommentService,
+    private messageService: MessageService,
   ) {}
 
-  ngAfterViewInit(): void {
-    console.log('comments', this.cardUserId);
-    console.log('comments', this.description);
-  }
-
   ngOnInit(): void {
-    this.validComment();
-
-    // this.userInformation();
+      this.validComment();
   }
 
   validComment() {
@@ -62,17 +41,6 @@ export class ShowCardModalComponent implements OnInit, AfterViewInit {
     });
   }
 
-  userInformation() {
-    this.userService.getUserById(this.cardUserId).subscribe({
-      next: (response) => {
-        console.log('response', response);
-        this.user = response.data;
-        console.log('user', this.user);
-      },
-      error: (err) => {},
-    });
-  }
-
   comment() {
     if (!this.form.valid) {
       console.log('invalido');
@@ -81,6 +49,19 @@ export class ShowCardModalComponent implements OnInit, AfterViewInit {
 
     console.log(this.form.value.comment);
     this.form.reset();
+  }
+
+  loadComments(){
+    console.log('loadComments');
+    this.commentService.getComments().subscribe({
+      next: (response: any) => {
+        console.log('response', response);
+      },
+      error: (error: any) => {
+        console.log('error', error);
+      }
+    
+    });
   }
 
   formatAddress() {

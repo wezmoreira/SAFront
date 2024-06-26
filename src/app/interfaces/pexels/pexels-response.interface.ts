@@ -1,5 +1,3 @@
-import { IPhoto } from './photo.interface';
-
 export interface IPexelsResponse {
   total_results: number;
   page: number;

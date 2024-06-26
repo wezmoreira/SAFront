@@ -12,7 +12,6 @@ import { ResetPasswordComponent } from './components/pages/reset-password/reset-
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MyCardsComponent } from './components/pages/my-cards/my-cards.component';
-import { ViewCardComponent } from './components/pages/view-card/view-card.component';
 import { ShowCardModalComponent } from './components/modal/show-card.modal/show-card.modal.component';
 import { AddCardModalComponent } from './components/modal/add-card-modal/add-card-modal.component';
 import { InterceptorService } from './services/security/interceptor.service';
@@ -28,7 +27,6 @@ import { EditProfileComponent } from './components/modal/profile/edit-profile/ed
     ProfileComponent,
     HomeComponent,
     MyCardsComponent,
-    ViewCardComponent,
     ShowCardModalComponent,
     AddCardModalComponent,
     EditProfileComponent,
