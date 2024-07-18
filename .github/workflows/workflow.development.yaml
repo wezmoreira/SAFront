@@ -3,7 +3,7 @@ name: SA-CI
 on: [push, pull_request]
 
 env:
-  AZURE_WEBAPP_NAME: solidariedade-anonima
+  AZURE_WEBAPP_NAME: solidariedade
   AZURE_WEBAPP_PACKAGE_PATH: "./dist"
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         npm run build
         npm run test-workflow
 
-    - name: Deploy to Azure WebApp
+    - name: Deploy Azure
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
