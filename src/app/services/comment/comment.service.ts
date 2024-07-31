@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CommentModel } from 'src/app/models/comment/comment.model';
+import { environment } from 'src/environments/environment'; 
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  private url: string = 'https://localhost:7080/api/';
+  private url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -15,6 +16,6 @@ export class CommentService {
   }
 
   getComments() {
-    return this.http.get(`${this.url}load-comments`);
+    return this.http.get(`${this.url}/load-comments`);
   }
 }
