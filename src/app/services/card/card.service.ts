@@ -17,7 +17,7 @@ export class CardService {
   constructor(private http: HttpClient) {}
 
   getCards(): Observable<GenericResult> {
-    return this.http.get<GenericResult>(`${this.url}v1/cards/principal`);
+    return this.http.get<GenericResult>(`${this.url}/v1/cards/principal`);
   }
 
   addCard(body: NewCard): Observable<NewCard> {
